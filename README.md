@@ -55,7 +55,7 @@ MNIST (~12 MB) is downloaded automatically on the first run via scikit-learn.
 
 ```mermaid
 graph LR
-    subgraph Input Layer [Input Layer]
+    subgraph Input_Layer ["Input Layer"]
         direction TB
         X1["x₁ (Pixel 1)"]
         X2["x₂ (Pixel 2)"]
@@ -63,7 +63,7 @@ graph LR
         Xn["x₇₈₄ (Pixel 784)"]
     end
 
-    subgraph Hidden 1 [Hidden Layer 1 (128 Neurons, ReLU)]
+    subgraph Hidden_1 ["Hidden Layer 1 (128 Neurons, ReLU)"]
         direction TB
         H1_1["a¹₁"]
         H1_2["a¹₂"]
@@ -71,7 +71,7 @@ graph LR
         H1_m["a¹₁₂₈"]
     end
 
-    subgraph Hidden 2 [Hidden Layer 2 (32 Neurons, ReLU)]
+    subgraph Hidden_2 ["Hidden Layer 2 (32 Neurons, ReLU)"]
         direction TB
         H2_1["a²₁"]
         H2_2["a²₂"]
@@ -79,7 +79,7 @@ graph LR
         H2_p["a²₃₂"]
     end
 
-    subgraph Output [Output Layer (10 Neurons, Softmax)]
+    subgraph Output_Layer ["Output Layer (10 Neurons, Softmax)"]
         direction TB
         Y1["ŷ₁ (Digit 0)"]
         Y2["ŷ₂ (Digit 1)"]
