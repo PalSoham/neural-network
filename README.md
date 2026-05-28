@@ -57,6 +57,7 @@ MNIST (~12 MB) is downloaded automatically on the first run via scikit-learn.
 graph LR
     subgraph Input_Layer ["Input Layer<br>(784 Features)"]
         direction TB
+        Space1[" "]:::spacer
         X1["x₁ (Pixel 1)"]
         X2["x₂ (Pixel 2)"]
         XD["⋮"]
@@ -65,6 +66,7 @@ graph LR
 
     subgraph Hidden_1 ["Hidden Layer 1<br>(128 Neurons, ReLU)"]
         direction TB
+        Space2[" "]:::spacer
         H1_1["a¹₁"]
         H1_2["a¹₂"]
         H1_D["⋮"]
@@ -73,6 +75,7 @@ graph LR
 
     subgraph Hidden_2 ["Hidden Layer 2<br>(32 Neurons, ReLU)"]
         direction TB
+        Space3[" "]:::spacer
         H2_1["a²₁"]
         H2_2["a²₂"]
         H2_D["⋮"]
@@ -81,6 +84,7 @@ graph LR
 
     subgraph Output_Layer ["Output Layer<br>(10 Neurons, Softmax)"]
         direction TB
+        Space4[" "]:::spacer
         Y1["ŷ₁ (Digit 0)"]
         Y2["ŷ₂ (Digit 1)"]
         YD["⋮"]
@@ -109,11 +113,13 @@ graph LR
     classDef hidden1 fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px,color:#4A148C;
     classDef hidden2 fill:#EDE7F6,stroke:#5E35B1,stroke-width:2px,color:#311B92;
     classDef output fill:#E8F5E9,stroke:#43A047,stroke-width:2px,color:#1B5E20;
+    classDef spacer fill:none,stroke:none,color:#00000000;
 
     class X1,X2,XD,Xn input;
     class H1_1,H1_2,H1_D,H1_m hidden1;
     class H2_1,H2_2,H2_D,H2_p hidden2;
     class Y1,Y2,YD,Yk output;
+    class Space1,Space2,Space3,Space4 spacer;
 ```
 
 You can change the architecture freely in `train.py`:
