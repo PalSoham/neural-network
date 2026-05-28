@@ -53,8 +53,67 @@ MNIST (~12 MB) is downloaded automatically on the first run via scikit-learn.
 
 ### Architecture
 
-```
-Input (784)  →  Hidden 1 (128, ReLU)  →  Hidden 2 (32, ReLU)  →  Output (10, Softmax)
+```mermaid
+graph LR
+    subgraph Input Layer [Input Layer]
+        direction TB
+        X1["x₁ (Pixel 1)"]
+        X2["x₂ (Pixel 2)"]
+        XD["⋮"]
+        Xn["x₇₈₄ (Pixel 784)"]
+    end
+
+    subgraph Hidden 1 [Hidden Layer 1 (128 Neurons, ReLU)]
+        direction TB
+        H1_1["a¹₁"]
+        H1_2["a¹₂"]
+        H1_D["⋮"]
+        H1_m["a¹₁₂₈"]
+    end
+
+    subgraph Hidden 2 [Hidden Layer 2 (32 Neurons, ReLU)]
+        direction TB
+        H2_1["a²₁"]
+        H2_2["a²₂"]
+        H2_D["⋮"]
+        H2_p["a²₃₂"]
+    end
+
+    subgraph Output [Output Layer (10 Neurons, Softmax)]
+        direction TB
+        Y1["ŷ₁ (Digit 0)"]
+        Y2["ŷ₂ (Digit 1)"]
+        YD["⋮"]
+        Yk["ŷ₁₀ (Digit 9)"]
+    end
+
+    %% Connections
+    X1 --> H1_1
+    X1 --> H1_2
+    X2 --> H1_1
+    X2 --> H1_2
+    Xn --> H1_m
+
+    H1_1 --> H2_1
+    H1_1 --> H2_2
+    H1_2 --> H2_1
+    H1_m --> H2_p
+
+    H2_1 --> Y1
+    H2_1 --> Y2
+    H2_2 --> Y1
+    H2_p --> Yk
+
+    %% Custom styling for a premium visual identity
+    classDef input fill:#E3F2FD,stroke:#1E88E5,stroke-width:2px,color:#0D47A1;
+    classDef hidden1 fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px,color:#4A148C;
+    classDef hidden2 fill:#EDE7F6,stroke:#5E35B1,stroke-width:2px,color:#311B92;
+    classDef output fill:#E8F5E9,stroke:#43A047,stroke-width:2px,color:#1B5E20;
+
+    class X1,X2,XD,Xn input;
+    class H1_1,H1_2,H1_D,H1_m hidden1;
+    class H2_1,H2_2,H2_D,H2_p hidden2;
+    class Y1,Y2,YD,Yk output;
 ```
 
 You can change the architecture freely in `train.py`:
